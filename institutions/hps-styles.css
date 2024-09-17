@@ -1,0 +1,165 @@
+/*
+SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+FONT SIZE SYSTEM (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Merriweather Sans", "Rubik", "Inter", sans-serif;
+  color: #1b1d12;
+  scroll-behavior: smooth;
+  background-color: #e5e5f7;
+  background-size: 20px 20px;
+  background-image: repeating-linear-gradient(
+    0deg,
+    #444cf7,
+    #444cf7 1px,
+    #e5e5f7 1px,
+    #e5e5f7
+  );
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h3 {
+  margin-top: 24px;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+.wrapper {
+  width: 1200px;
+  padding: 10px;
+  margin: 0 auto;
+}
+
+.main-wrapper {
+  background-color: #f1efe9;
+  padding: 24px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.org-logo {
+  width: 50px;
+}
+
+.navigation {
+  display: flex;
+}
+
+ul {
+  list-style: none;
+  gap: 24px;
+}
+
+h1 {
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+h2 {
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+h3 {
+  font-size: 30px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+h4 {
+  margin-bottom: 16px;
+  font-weight: 300;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  font-weight: 300;
+}
+
+ul {
+  margin-bottom: 12px;
+}
+
+li {
+  font-weight: 300;
+  font-size: 18px;
+}
+
+.req-doc {
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 300;
+  list-style: disc inside;
+}
+
+.table-wrapper {
+  display: grid;
+  place-items: center;
+  margin-bottom: 16px;
+}
+
+table {
+  border-collapse: collapse;
+  border: 2px solid #1b1d12;
+}
+
+th,
+td {
+  border: 1px solid #1b1d12;
+  padding: 8px 10px;
+}
+
+th {
+  text-align: center;
+}
+
+tbody > tr:nth-of-type(even) {
+  background-color: rgb(237 238 242);
+}
+
+.school {
+  width: 500px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 3px 0px rgba(0, 0, 0, 0.25);
+}
+
+.hps-image {
+  display: grid;
+  place-items: center;
+  margin-bottom: 16px;
+}

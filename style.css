@@ -1,0 +1,267 @@
+/*
+SPACING SYSTEM (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+FONT SIZE SYSTEM (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Merriweather Sans", "Rubik", "Inter", sans-serif;
+  color: #1b1d12;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+h3 {
+  font-size: 30px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+ul {
+  list-style: none;
+}
+
+header {
+  height: 700px;
+  position: relative;
+  background-image: linear-gradient(rgb(0, 0, 0, 0.5), rgb(0, 0, 0, 0.5)),
+    url(images/children-studying.png);
+  background-size: cover;
+  color: #fff;
+}
+
+.width-fixer {
+  width: 1200px;
+  padding: 10px;
+  margin: 0 auto;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.org-logo {
+  width: 50px;
+}
+
+.navigation {
+  display: flex;
+}
+
+ul {
+  list-style: none;
+  gap: 24px;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-container-inner {
+  color: #e5e5f7;
+  text-align: center;
+}
+
+.header-container-inner h1 {
+  text-align: center;
+}
+
+.main-logo {
+  width: 400px;
+  padding: 10px;
+}
+
+section {
+  width: 1200px;
+  margin: 32px auto;
+}
+
+.message-wrapper {
+  display: grid;
+  place-items: center;
+  background-color: #e5e5f7;
+  background-size: 20px 20px;
+  background-image: repeating-linear-gradient(
+    0deg,
+    #444cf7,
+    #444cf7 1px,
+    #e5e5f7 1px,
+    #e5e5f7
+  );
+}
+
+.message {
+  background-color: #f1efe9;
+  padding: 24px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25);
+}
+
+.img-split {
+  display: flex;
+  gap: 25px;
+}
+
+.image-split-text {
+  margin-top: 24px;
+}
+
+.president-img {
+  height: 250px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 3px 0px rgba(0, 0, 0, 0.25);
+  margin-bottom: 16px;
+}
+
+.president-footer > p {
+  margin-bottom: 4px;
+}
+
+.institutions-wrapper {
+  display: grid;
+  place-items: center;
+  background-color: #e5e5f7;
+  background-image: linear-gradient(#444cf7 1.5px, transparent 1.5px),
+    linear-gradient(90deg, #444cf7 1.5px, transparent 1.5px),
+    linear-gradient(#444cf7 1px, transparent 1px),
+    linear-gradient(90deg, #444cf7 1px, #e5e5f7 1px);
+  background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
+  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+}
+
+.institutions-section {
+  background-color: #f7f1f0;
+  padding: 24px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25);
+}
+
+.institution {
+  display: flex;
+  align-items: top;
+  justify-content: center;
+  margin: 12px;
+}
+
+.institution-image {
+  width: 250px;
+  border-radius: 10px;
+  margin: 12px;
+  box-shadow: 5px 5px 3px 0px rgba(0, 0, 0, 0.25);
+}
+
+.institution-text {
+  margin: 10px;
+}
+
+.donation-wrapper {
+  display: grid;
+  place-items: center;
+  background-color: #e5e5f7;
+  background-image: radial-gradient(#444cf7 1.5px, #e5e5f7 1.5px);
+  background-size: 20px 20px;
+}
+
+.donations {
+  background-color: #eff2ef;
+  width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  gap: 24px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25);
+}
+
+.donation-text {
+  width: 700px;
+}
+
+.qr-code {
+  border-radius: 10px;
+  width: 400px;
+}
+
+.contact-us-wrapper {
+  display: grid;
+  place-items: center;
+  background-color: #3c3c41;
+  color: #e5e5f7;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: top;
+  gap: 24px;
+}
+
+.contact-info-item {
+  padding: 16px;
+  border-left: #8888c5 2px solid;
+}
+
+.social-logo {
+  width: 25px;
+}
+
+.contact-block > div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.contact-block > div > p {
+  margin-bottom: 0;
+}
+
+li > p {
+  margin-bottom: 4px;
+}
+
+.sitemap-heading {
+  margin-bottom: 16px;
+}
