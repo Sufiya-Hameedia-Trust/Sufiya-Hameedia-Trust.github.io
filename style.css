@@ -329,23 +329,6 @@ body {
     box-shadow: var(--shadow-lg);
 }
 
-.btn-upi {
-    background: linear-gradient(135deg, #00C853, #4CAF50);
-    color: white;
-    padding: 1rem 1.5rem;
-    font-size: 1rem;
-    margin-top: 1rem;
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-}
-
-.btn-upi:hover {
-    background: linear-gradient(135deg, #00B248, #45A049);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-}
-
 .scroll-indicator {
     position: absolute;
     bottom: 2rem;
@@ -688,15 +671,6 @@ body {
     color: var(--text-secondary);
     font-size: 0.875rem;
     margin: 0;
-}
-
-.donation-buttons {
-    margin-top: 1rem;
-}
-
-.donation-buttons .qr-text {
-    margin-top: 0.5rem;
-    font-size: 0.8rem;
 }
 
 .footer {
