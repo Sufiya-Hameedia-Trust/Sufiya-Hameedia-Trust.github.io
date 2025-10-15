@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - **Photo Gallery Section** - Real classroom and Independence Day celebration photos
-  - 3 authentic photos: 2 classroom scenes, 1 Independence Day celebration
+  - 3 authentic photos: `classroom1_kids_real.jpg`, `classroom2_kid_real.jpg`, `15_august_photo_teacher_student_real.jpg`
   - Non-clickable display with visible captions
   - Mobile-responsive grid layout
   - Professional card-based design
@@ -20,11 +20,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Feedback form: https://forms.gle/wDcuF4GRafVFXFcK8
   - Space designed for regular institutional updates
 
-- **Enhanced UPI Donation System** - Modern payment experience
-  - Simplified single "Pay Now via UPI" button
-  - Amount selection: ₹100, ₹500, ₹1000, Custom amounts
-  - Generic UPI link triggers phone's native app chooser
-  - Device tracking in transaction notes for donor identification
+- **Enhanced UPI Donation System** - Streamlined payment experience
+  - **Direct Payment Flow**: Quick amount buttons (₹100, ₹500, ₹1000) open UPI app immediately
+  - **Custom Payment**: Main "Pay Now via UPI" button for custom amounts
+  - **No Two-Step Process**: Single click directly opens UPI app with pre-filled details
+  - Device tracking with reliable browser/platform identification
   - Trust indicators: "Trusted by thousands | 100% goes to education"
   - Security badges: "Secure Payment" & "Tax Exemption Available"
 
@@ -39,31 +39,57 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Mobile-responsive hamburger menu support
 
 ### Changed
-- **YouTube Channel Link** - Updated to new official channel
+- **YouTube Channel Link** - Updated across all pages (index, hps, madrasa, night-coaching)
   - From: `@madrasaesufiyahamidiya`
   - To: `@madrasasufiyahameedia` (https://youtube.com/@madrasasufiyahameedia?si=Jq06terImd8lrJ5V)
 
-- **Evening Classes Timing Display** - Clarity improvement
-  - From: "9:00 PM - 11:00 PM"
-  - To: "Evening: 9:00 PM - 11:00 PM"
-  - Prevents confusion with age group specifications
+- **Evening Classes Timing Display** - Multiple format improvements
+  - Main page: "9:00 PM - 11:00 PM" → "Evening: 9:00 PM - 11:00 PM"
+  - Night coaching page: "9-11" → "9pm to 11pm"
+  - Night coaching page: "Evening Classes (PM)" → "Evening Classes"
 
-- **UPI Payment Flow** - Enhanced user experience
-  - Custom amount: Opens UPI app directly without prompt (user sets amount in app)
-  - Fixed amounts: Pre-filled amount with device tracking
-  - Improved transaction notes with meaningful device identifiers
+- **UPI Payment Flow** - Completely redesigned for ease of use
+  - **Quick amounts**: Direct UPI app opening (no selection step)
+  - **Custom amounts**: Single button with helper text "Click here for custom pay"
+  - **Device identifiers**: Reliable browser/platform detection (Chrome-Windows-1234)
+  - **No scrolling issues**: Fixed `href="#"` causing page jumps
+
+- **Footer Cleanup** - Improved categorization
+  - Removed "Donation Programs" from "Academic Programs" sections across all pages
+  - Academic Programs now only shows educational institutions
 
 ### Fixed
 - **President Photo Positioning** - Visual improvement
   - Added `object-position: center top` to prevent head cutoff
   - Better face centering in circular frame
 
+- **UPI Button Behavior** - Interaction improvements
+  - Fixed scrolling to top when clicking amount buttons
+  - Prevented default link behavior causing navigation issues
+  - Direct UPI app launching without intermediate steps
+
+- **Device Identifier Generation** - Reliability improvements
+  - More robust browser detection (Chrome, Firefox, Safari, Edge)
+  - Better platform identification (Windows, Mac, Android, iPhone)
+  - Cleaner transaction notes instead of parsing errors
+
 ### Technical Improvements
-- Enhanced JavaScript for UPI amount selection and validation
-- Comprehensive CSS styling for all new sections
-- Device identifier generation for transaction tracking
-- Mobile-first responsive design throughout
-- Cross-browser compatibility maintained
+- **JavaScript Enhancements**
+  - Simplified UPI donation logic (removed complex amount selection state)
+  - Direct link generation for immediate UPI app opening
+  - Improved error handling and user feedback
+  - Better device fingerprinting for transaction tracking
+
+- **CSS Improvements**
+  - Updated grid layouts for 3-column amount buttons (removed 4th custom button)
+  - Added styling for custom pay helper text
+  - Enhanced mobile responsiveness
+  - Consistent styling across all pages
+
+- **Cross-Page Consistency**
+  - YouTube links updated on all 4 HTML pages
+  - Footer academic programs cleaned up on all pages
+  - Consistent navigation and branding throughout
 
 ---
 
