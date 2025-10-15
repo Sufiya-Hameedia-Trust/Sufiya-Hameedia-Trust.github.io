@@ -2,7 +2,7 @@
 
 A modern, responsive website for Sufiya Hameedia Group of Institutions - a charitable trust providing quality education across multiple programs.
 
-**🌐 Live Website:** [https://sufiya-hameedia-trust.github.io](https://sufiya-hameedia-trust.github.io)
+**🌐 Live Website:** [https://www.sufiyahameediatrust.in/](https://www.sufiyahameediatrust.in/)
 
 ## About
 
