@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeAnimations();
     initializeDonationModal();
     initializeParallax();
+    initializeUPIDonation();
 });
 
 function initializeNavigation() {
@@ -314,3 +315,79 @@ document.querySelectorAll('img').forEach(img => {
         });
     }
 });
+
+// UPI Donation System
+function initializeUPIDonation() {
+    const amountButtons = document.querySelectorAll('.amount-btn');
+    const upiPayButton = document.getElementById('upiPayBtn');
+    let selectedAmount = null;
+
+    // Handle amount selection
+    amountButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            amountButtons.forEach(btn => btn.classList.remove('active'));
+
+            // Add active class to clicked button
+            this.classList.add('active');
+
+            // Store selected amount
+            selectedAmount = this.getAttribute('data-amount');
+
+            // Handle custom amount
+            if (selectedAmount === 'custom') {
+                const customAmount = prompt('Enter your donation amount (₹):');
+                if (customAmount && !isNaN(customAmount) && parseFloat(customAmount) > 0) {
+                    selectedAmount = customAmount;
+                    this.textContent = `₹${customAmount}`;
+                    updateUPILink(selectedAmount);
+                } else {
+                    this.classList.remove('active');
+                    selectedAmount = null;
+                }
+            } else {
+                updateUPILink(selectedAmount);
+            }
+        });
+    });
+
+    // Update UPI link with selected amount
+    function updateUPILink(amount) {
+        if (!amount || !upiPayButton) return;
+
+        const baseUPI = 'sufiyahameediatrust@indianbk';
+        const name = 'Sufiya Hameedia Trust';
+        const note = `Donation for Education - ₹${amount}`;
+
+        const upiLink = `upi://pay?pa=${baseUPI}&pn=${encodeURIComponent(name)}&tn=${encodeURIComponent(note)}&am=${amount}&cu=INR`;
+        upiPayButton.href = upiLink;
+
+        // Update button text to show selected amount
+        const payText = upiPayButton.querySelector('.pay-text');
+        if (payText) {
+            payText.textContent = `Pay ₹${amount} via UPI`;
+        }
+
+        showNotification(`Amount ₹${amount} selected. Click "Pay Now" to donate.`, 'success');
+    }
+
+    // Add click tracking for UPI pay button
+    if (upiPayButton) {
+        upiPayButton.addEventListener('click', function(e) {
+            if (!selectedAmount) {
+                e.preventDefault();
+                showNotification('Please select an amount first.', 'error');
+                return;
+            }
+
+            showNotification(`Opening UPI app for ₹${selectedAmount} donation...`, 'success');
+
+            // Fallback for mobile detection
+            setTimeout(() => {
+                const fallbackMessage = `If no UPI app opened, please scan the QR code or use any UPI app with UPI ID: sufiyahameediatrust@indianbk`;
+                console.log(fallbackMessage);
+            }, 3000);
+        });
+    }
+}
+
