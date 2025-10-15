@@ -323,9 +323,21 @@ function initializeUPIDonation() {
 
     // Generate device identifier for transaction tracking
     function generateDeviceId() {
-        const browser = navigator.userAgent.split(' ').pop().split('/')[0];
-        const platform = navigator.platform.substring(0, 3);
-        const timestamp = Date.now().toString().slice(-6);
+        // More reliable browser detection
+        let browser = 'Unknown';
+        if (navigator.userAgent.indexOf('Chrome') > -1) browser = 'Chrome';
+        else if (navigator.userAgent.indexOf('Firefox') > -1) browser = 'Firefox';
+        else if (navigator.userAgent.indexOf('Safari') > -1) browser = 'Safari';
+        else if (navigator.userAgent.indexOf('Edge') > -1) browser = 'Edge';
+
+        // Platform detection
+        let platform = 'Unknown';
+        if (navigator.platform.indexOf('Win') > -1) platform = 'Windows';
+        else if (navigator.platform.indexOf('Mac') > -1) platform = 'Mac';
+        else if (navigator.platform.indexOf('Android') > -1) platform = 'Android';
+        else if (navigator.platform.indexOf('iPhone') > -1) platform = 'iPhone';
+
+        const timestamp = Date.now().toString().slice(-4);
         return `${browser}-${platform}-${timestamp}`;
     }
 
@@ -343,6 +355,11 @@ function initializeUPIDonation() {
 
         // Add click tracking
         button.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default link behavior
+
+            // Open UPI app directly
+            window.location.href = button.href;
+
             showNotification(`Opening UPI app for ₹${amount} donation...`, 'success');
 
             // Fallback for mobile detection
@@ -366,6 +383,11 @@ function initializeUPIDonation() {
 
         // Add click tracking for main button
         upiPayButton.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default link behavior
+
+            // Open UPI app directly
+            window.location.href = upiPayButton.href;
+
             showNotification('Opening UPI app for custom amount donation...', 'success');
 
             // Fallback for mobile detection
