@@ -320,7 +320,6 @@ document.querySelectorAll('img').forEach(img => {
 function initializeUPIDonation() {
     const amountButtons = document.querySelectorAll('.amount-btn');
     const upiPayButton = document.getElementById('upiPayBtn');
-    let selectedAmount = null;
 
     // Generate device identifier for transaction tracking
     function generateDeviceId() {
@@ -330,77 +329,44 @@ function initializeUPIDonation() {
         return `${browser}-${platform}-${timestamp}`;
     }
 
-    // Handle amount selection
+    // Set up quick amount buttons (direct UPI links)
     amountButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Remove active class from all buttons
-            amountButtons.forEach(btn => btn.classList.remove('active'));
+        const amount = button.getAttribute('data-amount');
+        const deviceId = generateDeviceId();
+        const baseUPI = 'sufiyahameediatrust@indianbk';
+        const name = 'Sufiya Hameedia Trust';
+        const note = `Education Donation ₹${amount} - Device: ${deviceId}`;
 
-            // Add active class to clicked button
-            this.classList.add('active');
+        // Set direct UPI link
+        const upiLink = `upi://pay?pa=${baseUPI}&pn=${encodeURIComponent(name)}&tn=${encodeURIComponent(note)}&am=${amount}&cu=INR`;
+        button.href = upiLink;
 
-            // Store selected amount
-            selectedAmount = this.getAttribute('data-amount');
+        // Add click tracking
+        button.addEventListener('click', function(e) {
+            showNotification(`Opening UPI app for ₹${amount} donation...`, 'success');
 
-            // Handle custom amount - open UPI directly without prompt
-            if (selectedAmount === 'custom') {
-                selectedAmount = 'custom';
-                this.textContent = 'Custom Amount';
-                updateUPILink(selectedAmount);
-            } else {
-                updateUPILink(selectedAmount);
-            }
+            // Fallback for mobile detection
+            setTimeout(() => {
+                const fallbackMessage = `If no UPI app opened, please scan the QR code or use any UPI app with UPI ID: sufiyahameediatrust@indianbk`;
+                console.log(fallbackMessage);
+            }, 3000);
         });
     });
 
-    // Update UPI link with selected amount
-    function updateUPILink(amount) {
-        if (!amount || !upiPayButton) return;
-
+    // Set up main UPI button for custom amounts
+    if (upiPayButton) {
+        const deviceId = generateDeviceId();
         const baseUPI = 'sufiyahameediatrust@indianbk';
         const name = 'Sufiya Hameedia Trust';
-        const deviceId = generateDeviceId();
+        const note = `Education Donation - Device: ${deviceId}`;
 
-        let note, upiLink;
+        // Set custom UPI link (no amount - user sets in app)
+        const customUpiLink = `upi://pay?pa=${baseUPI}&pn=${encodeURIComponent(name)}&tn=${encodeURIComponent(note)}&cu=INR`;
+        upiPayButton.href = customUpiLink;
 
-        if (amount === 'custom') {
-            // For custom amount - no amount parameter, user sets in UPI app
-            note = `Education Donation - Device: ${deviceId}`;
-            upiLink = `upi://pay?pa=${baseUPI}&pn=${encodeURIComponent(name)}&tn=${encodeURIComponent(note)}&cu=INR`;
-
-            // Update button text for custom
-            const payText = upiPayButton.querySelector('.pay-text');
-            if (payText) {
-                payText.textContent = 'Pay Custom Amount via UPI';
-            }
-            showNotification('Custom amount selected. Set amount in your UPI app.', 'success');
-        } else {
-            // For fixed amounts
-            note = `Education Donation ₹${amount} - Device: ${deviceId}`;
-            upiLink = `upi://pay?pa=${baseUPI}&pn=${encodeURIComponent(name)}&tn=${encodeURIComponent(note)}&am=${amount}&cu=INR`;
-
-            // Update button text to show selected amount
-            const payText = upiPayButton.querySelector('.pay-text');
-            if (payText) {
-                payText.textContent = `Pay ₹${amount} via UPI`;
-            }
-            showNotification(`Amount ₹${amount} selected. Click "Pay Now" to donate.`, 'success');
-        }
-
-        upiPayButton.href = upiLink;
-    }
-
-    // Add click tracking for UPI pay button
-    if (upiPayButton) {
+        // Add click tracking for main button
         upiPayButton.addEventListener('click', function(e) {
-            if (!selectedAmount) {
-                e.preventDefault();
-                showNotification('Please select an amount first.', 'error');
-                return;
-            }
-
-            const amountText = selectedAmount === 'custom' ? 'custom amount' : `₹${selectedAmount}`;
-            showNotification(`Opening UPI app for ${amountText} donation...`, 'success');
+            showNotification('Opening UPI app for custom amount donation...', 'success');
 
             // Fallback for mobile detection
             setTimeout(() => {
