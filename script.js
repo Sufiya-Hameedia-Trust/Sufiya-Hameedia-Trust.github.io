@@ -344,41 +344,28 @@ function initializeUPIDonation() {
     // Set up quick amount buttons (direct UPI links)
     amountButtons.forEach(button => {
         const amount = button.getAttribute('data-amount');
-        const deviceId = generateDeviceId();
         const baseUPI = 'sufiyahameediatrust@indianbk';
         const name = 'Sufiya Hameedia Trust';
-        const note = `Education Donation ₹${amount} - Device: ${deviceId}`;
 
-        // Set direct UPI link
-        const upiLink = `upi://pay?pa=${baseUPI}&pn=${encodeURIComponent(name)}&tn=${encodeURIComponent(note)}&am=${amount}&cu=INR`;
+        // Set direct UPI link (no notes, no device tracking)
+        const upiLink = `upi://pay?pa=${baseUPI}&pn=${encodeURIComponent(name)}&am=${amount}&cu=INR`;
         button.href = upiLink;
 
         // Add click tracking
         button.addEventListener('click', function(e) {
-            e.preventDefault(); // Prevent default link behavior
-
-            // Open UPI app directly
+            e.preventDefault();
             window.location.href = button.href;
-
             showNotification(`Opening UPI app for ₹${amount} donation...`, 'success');
-
-            // Fallback for mobile detection
-            setTimeout(() => {
-                const fallbackMessage = `If no UPI app opened, please scan the QR code or use any UPI app with UPI ID: sufiyahameediatrust@indianbk`;
-                console.log(fallbackMessage);
-            }, 3000);
         });
     });
 
     // Set up main UPI button for custom amounts
     if (upiPayButton) {
-        const deviceId = generateDeviceId();
         const baseUPI = 'sufiyahameediatrust@indianbk';
         const name = 'Sufiya Hameedia Trust';
-        const note = `Education Donation - Device: ${deviceId}`;
 
-        // Set custom UPI link (no amount - user sets in app)
-        const customUpiLink = `upi://pay?pa=${baseUPI}&pn=${encodeURIComponent(name)}&tn=${encodeURIComponent(note)}&cu=INR`;
+        // Set custom UPI link (no amount, no notes)
+        const customUpiLink = `upi://pay?pa=${baseUPI}&pn=${encodeURIComponent(name)}&cu=INR`;
         upiPayButton.href = customUpiLink;
 
         // Add click tracking for main button

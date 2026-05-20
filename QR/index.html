@@ -47,7 +47,21 @@
             font-family: monospace;
             font-size: 0.85rem;
             color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
         }
+        .copy-btn {
+            background: #667eea;
+            color: #fff;
+            border: none;
+            padding: 0.4rem 0.7rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+        .copy-btn:active { transform: scale(0.95); }
         .back-link {
             display: inline-block;
             margin-top: 1.2rem;
@@ -62,8 +76,21 @@
         <h1>Sufiya Hameedia Trust</h1>
         <p>Scan to donate via any UPI app</p>
         <img src="../images/donation-qr.png" alt="Donation QR Code" class="qr-img">
-        <div class="upi-id">sufiyahameediatrust@indianbk</div>
+        <div class="upi-id">
+            <span id="upiText">sufiyahameediatrust@indianbk</span>
+            <button class="copy-btn" onclick="copyUPI()">📋 Copy</button>
+        </div>
         <a href="/" class="back-link">&larr; Back to website</a>
     </div>
+    <script>
+        function copyUPI() {
+            const text = document.getElementById('upiText').textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                btn.textContent = '✅ Copied!';
+                setTimeout(() => { btn.textContent = '📋 Copy'; }, 2000);
+            });
+        }
+    </script>
 </body>
 </html>
