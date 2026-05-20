@@ -5,6 +5,34 @@ All notable changes to the Sufiya Hameedia Trust website will be documented in t
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.0] - 2025-05-20
+
+### Added
+- **Admissions Banner Section** - Seasonal admission poster for 2026-27
+  - Mobile-first design (95-98% width on mobile, max 700px on desktop)
+  - Subtle slide-in + fade-in CSS animation on page load
+  - Purple gradient background (`#667eea` → `#764ba2`)
+  - Rounded corners and shadow for poster card
+  - Hover lift effect on desktop (disabled on mobile for performance)
+  - `loading="lazy"` for performance
+  - Seasonal toggle via CSS class `banner-hidden` on the section element
+
+### Changed
+- **README.md** - Complete rewrite with dual audience sections
+  - "For Humans" section: testing guide with F12 DevTools, deployment steps, common tasks
+  - "For AI Agents" section: repository structure, branching strategy, critical rules, design system
+  - Mobile testing checklist with specific device resolutions
+  - Network throttling guide for slow connection testing
+  - Seasonal content management instructions
+
+### Technical
+- Added ~90 lines of CSS for banner section with 4 responsive breakpoints
+- Image: `images/admission-banner-2026-27.jpg` (268KB, 1200x1600px)
+- Banner placed between Hero/About section and Academic Institutions section
+- No JavaScript required — pure CSS animations and toggle
+
+---
+
 ## [2.0.0] - 2024-10-16
 
 ### Added

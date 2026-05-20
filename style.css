@@ -1498,3 +1498,96 @@ body {
         gap: 0.25rem;
     }
 }
+
+/* ========================================
+   ADMISSIONS BANNER SECTION 2026-27
+   ======================================== */
+
+.admissions-banner-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 2.5rem 1rem;
+    animation: fadeIn 0.8s ease-in;
+}
+
+.admission-poster-container {
+    max-width: 700px;
+    margin: 0 auto;
+    animation: slideInUp 0.6s ease-out 0.2s both;
+}
+
+.admission-poster {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.admission-poster:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Seasonal Toggle */
+.banner-hidden {
+    display: none !important;
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    .admissions-banner-section {
+        padding: 1.5rem 0.5rem;
+    }
+
+    .admission-poster-container {
+        max-width: 95%;
+    }
+
+    .admission-poster {
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .admission-poster:hover {
+        transform: none;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+}
+
+@media (max-width: 480px) {
+    .admissions-banner-section {
+        padding: 1rem 0.4rem;
+    }
+
+    .admission-poster-container {
+        max-width: 98%;
+    }
+
+    .admission-poster {
+        border-radius: 10px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .admission-poster-container {
+        max-width: 800px;
+    }
+}
