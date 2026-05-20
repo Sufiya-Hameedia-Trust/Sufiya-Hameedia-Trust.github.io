@@ -162,13 +162,13 @@ If changes don't appear:
 
 #### Hide Admission Banner (After Admission Deadline)
 
-In `index.html`, add `banner-hidden` class:
+In `index.html`, add `banner-hidden` class to the banner card:
 ```html
 <!-- Change this: -->
-<section class="admissions-banner-section">
+<div class="announcement-card admission-banner-card">
 
 <!-- To this: -->
-<section class="admissions-banner-section banner-hidden">
+<div class="announcement-card admission-banner-card banner-hidden">
 ```
 
 Push the change and the banner disappears. Remove the class to show it again next year.
@@ -215,6 +215,8 @@ Sufiya-Hameedia-Trust.github.io/
 ├── CHANGELOG.md                            # Version history
 ├── LICENSE                                 # Project license
 ├── README.md                               # This file
+├── QR/
+│   └── index.html                          # Standalone QR code page (www.sufiyahameediatrust.in/QR)
 └── images/                                 # All website images
     ├── sufiyah.png                         # Logo (dark, for nav)
     ├── sufiyah_lighter.png                 # Logo (light, for hero)
@@ -408,13 +410,13 @@ The admission banner section can be toggled seasonally:
 **To Hide (after admission deadline):**
 ```html
 <!-- Add class "banner-hidden" -->
-<section class="admissions-banner-section banner-hidden">
+<div class="announcement-card admission-banner-card banner-hidden">
 ```
 
 **To Show (before new academic year):**
 ```html
 <!-- Remove class "banner-hidden" -->
-<section class="admissions-banner-section">
+<div class="announcement-card admission-banner-card">
 ```
 
 **To Update for Next Year:**
