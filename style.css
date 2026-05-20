@@ -1500,17 +1500,18 @@ body {
 }
 
 /* ========================================
-   ADMISSIONS BANNER SECTION 2026-27
+   ADMISSIONS BANNER (inside Announcements)
    ======================================== */
 
-.admissions-banner-section {
+.admission-banner-card {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    padding: 2.5rem 1rem;
+    padding: 1.5rem;
+    border-radius: 15px;
     animation: fadeIn 0.8s ease-in;
 }
 
 .admission-poster-container {
-    max-width: 700px;
+    max-width: 500px;
     margin: 0 auto;
     animation: slideInUp 0.6s ease-out 0.2s both;
 }
@@ -1519,14 +1520,14 @@ body {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 15px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .admission-poster:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
 /* Animations */
@@ -1553,41 +1554,26 @@ body {
 
 /* Mobile Optimization */
 @media (max-width: 768px) {
-    .admissions-banner-section {
-        padding: 1.5rem 0.5rem;
+    .admission-banner-card {
+        padding: 1rem;
     }
 
     .admission-poster-container {
-        max-width: 95%;
-    }
-
-    .admission-poster {
-        border-radius: 12px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-    }
-
-    .admission-poster:hover {
-        transform: none;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-    }
-}
-
-@media (max-width: 480px) {
-    .admissions-banner-section {
-        padding: 1rem 0.4rem;
-    }
-
-    .admission-poster-container {
-        max-width: 98%;
+        max-width: 100%;
     }
 
     .admission-poster {
         border-radius: 10px;
     }
+
+    .admission-poster:hover {
+        transform: none;
+    }
 }
 
-@media (min-width: 1400px) {
-    .admission-poster-container {
-        max-width: 800px;
+@media (max-width: 480px) {
+    .admission-banner-card {
+        padding: 0.75rem;
+        border-radius: 12px;
     }
 }
