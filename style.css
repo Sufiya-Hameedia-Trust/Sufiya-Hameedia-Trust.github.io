@@ -1611,27 +1611,49 @@ body {
 }
 
 /* --- Feedback Standalone (full-width row below grid) --- */
-.feedback-standalone {
-    margin-top: 1.5rem;
+/* --- Feedback Strip — compact inline row below main cards --- */
+.feedback-strip {
+    margin-top: 1.25rem;
     display: flex;
-    align-items: flex-start;
-    gap: 1.5rem;
+    align-items: center;
+    gap: 0.875rem;
+    padding: 0.75rem 1.25rem;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    border: 1px solid #e2e8f0;
+    flex-wrap: wrap;
 }
 
-.feedback-standalone .announcement-icon {
-    font-size: 2.5rem;
+.feedback-strip-icon {
+    font-size: 1.1rem;
     flex-shrink: 0;
-    margin-bottom: 0;
+    line-height: 1;
 }
 
-@media (max-width: 480px) {
-    .feedback-standalone {
-        flex-direction: column;
-        gap: 0.75rem;
-    }
-    .feedback-standalone .announcement-icon {
-        font-size: 2rem;
-    }
+.feedback-strip-text {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    flex: 1;
+    min-width: 140px;
+    line-height: 1.4;
+}
+
+.feedback-strip-btn {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: var(--transition-fast);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.feedback-strip-btn:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
 }
 
 /* --- Responsive overrides --- */
