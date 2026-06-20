@@ -248,15 +248,46 @@
                         />
                     </div>
                 </div>
-                <div class="announcement-card">
-                    <div class="announcement-icon">📢</div>
-                    <div class="announcement-text">
-                        <h3>Student & Teacher Feedback</h3>
-                        <p>We value your feedback! Share your thoughts, suggestions, and experiences to help us improve our services.</p>
-                        <a href="https://forms.gle/wDcuF4GRafVFXFcK8" target="_blank" class="feedback-btn" id="feedbackFormBtn">
-                            <span>📝</span> Submit Feedback
-                        </a>
+
+                <!-- Promo Video Card -->
+                <div class="announcement-card promo-video-card">
+                    <div class="video-card-header">
+                        <span class="video-badge">🎬 New</span>
+                        <h3 class="video-card-title">Admissions Open 2026–27</h3>
+                        <p class="video-card-subtitle">See our classrooms, facilities &amp; vibrant learning environment</p>
                     </div>
+                    <div class="video-wrapper">
+                        <video
+                            id="promoVideo"
+                            class="promo-video"
+                            src="videos/promo.mp4"
+                            playsinline
+                            muted
+                            loop
+                            preload="metadata"
+                            poster="images/admission-banner-2026-27.jpg"
+                        >
+                            <p>Your browser doesn't support video playback.
+                               <a href="videos/promo.mp4" download>Download to watch</a>.
+                            </p>
+                        </video>
+                        <button class="sound-toggle" id="soundToggle" aria-label="Toggle sound">
+                            <span class="sound-icon">🔇</span>
+                            <span class="sound-label">Tap for sound</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feedback Card — full width below -->
+            <div class="announcement-card feedback-standalone">
+                <div class="announcement-icon">📢</div>
+                <div class="announcement-text">
+                    <h3>Student &amp; Teacher Feedback</h3>
+                    <p>We value your feedback! Share your thoughts, suggestions, and experiences to help us improve our services.</p>
+                    <a href="https://forms.gle/wDcuF4GRafVFXFcK8" target="_blank" class="feedback-btn" id="feedbackFormBtn">
+                        <span>📝</span> Submit Feedback
+                    </a>
                 </div>
             </div>
         </div>

@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeDonationModal();
     initializeParallax();
     initializeUPIDonation();
+    initializePromoVideo();
 });
 
 function initializeNavigation() {
@@ -379,9 +380,60 @@ function initializeUPIDonation() {
 
             // Fallback for mobile detection
             setTimeout(() => {
-                const fallbackMessage = `If no UPI app opened, please scan the QR code or use any UPI app with UPI ID: sufiyahameediatrust@indianbk`;
+                 const fallbackMessage = `If no UPI app opened, please scan the QR code or use any UPI app with UPI ID: sufiyahameediatrust@indianbk`;
                 console.log(fallbackMessage);
             }, 3000);
+        });
+    }
+}
+
+// ============================================================
+//  PROMO VIDEO — autoplay muted on scroll + sound toggle
+// ============================================================
+function initializePromoVideo() {
+    const video       = document.getElementById('promoVideo');
+    const soundBtn    = document.getElementById('soundToggle');
+    const soundIcon   = soundBtn  ? soundBtn.querySelector('.sound-icon')  : null;
+    const soundLabel  = soundBtn  ? soundBtn.querySelector('.sound-label') : null;
+
+    if (!video) return;   // section not present (e.g. banner hidden)
+
+    // --- Autoplay on scroll into view (muted, browser-safe) ---
+    const playObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    video.play().catch(() => {
+                        // Autoplay blocked (desktop without prior interaction) — silent fail
+                    });
+                } else {
+                    video.pause();
+                }
+            });
+        },
+        { threshold: 0.5 }
+    );
+    playObserver.observe(video);
+
+    // --- Sound toggle ---
+    if (soundBtn) {
+        soundBtn.addEventListener('click', function () {
+            video.muted = !video.muted;
+
+            if (video.muted) {
+                soundIcon.textContent  = '🔇';
+                soundLabel.textContent = 'Tap for sound';
+                soundBtn.setAttribute('aria-label', 'Unmute video');
+            } else {
+                soundIcon.textContent  = '🔊';
+                soundLabel.textContent = 'Mute';
+                soundBtn.setAttribute('aria-label', 'Mute video');
+
+                // Some browsers need a play() call after unmute
+                if (video.paused) {
+                    video.play().catch(() => {});
+                }
+            }
         });
     }
 }

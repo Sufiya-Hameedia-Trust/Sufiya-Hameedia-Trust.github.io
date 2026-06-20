@@ -1500,6 +1500,164 @@ body {
 }
 
 /* ========================================
+   PROMO VIDEO CARD (inside Announcements)
+   ======================================== */
+
+.promo-video-card {
+    padding: 0;
+    overflow: hidden;
+    border-left: 4px solid var(--accent-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.video-card-header {
+    padding: 1.5rem 1.5rem 1rem;
+}
+
+.video-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--accent-color), #e67e22);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+.video-card-title {
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+}
+
+.video-card-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* --- Video Wrapper --- */
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    background: #000;
+    flex: 1;
+    min-height: 0;
+}
+
+.promo-video {
+    width: 100%;
+    display: block;
+    max-height: 380px;
+    object-fit: cover;
+}
+
+/* --- Sound Toggle Button --- */
+.sound-toggle {
+    position: absolute;
+    bottom: 0.75rem;
+    right: 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(0, 0, 0, 0.65);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 0.45rem 0.9rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background var(--transition-fast), transform var(--transition-fast);
+    /* Ensure min touch target 44px */
+    min-height: 44px;
+    min-width: 44px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 10;
+    font-family: inherit;
+    line-height: 1;
+}
+
+.sound-toggle:hover {
+    background: rgba(0, 0, 0, 0.85);
+    transform: scale(1.05);
+}
+
+.sound-toggle:active {
+    transform: scale(0.97);
+}
+
+.sound-icon {
+    font-size: 1rem;
+    line-height: 1;
+}
+
+/* --- Feedback Standalone (full-width row below grid) --- */
+.feedback-standalone {
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.feedback-standalone .announcement-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+    margin-bottom: 0;
+}
+
+@media (max-width: 480px) {
+    .feedback-standalone {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    .feedback-standalone .announcement-icon {
+        font-size: 2rem;
+    }
+}
+
+/* --- Responsive overrides --- */
+@media (max-width: 768px) {
+    .promo-video {
+        max-height: 240px;
+    }
+
+    .video-card-header {
+        padding: 1rem 1rem 0.75rem;
+    }
+
+    .video-card-title {
+        font-size: 1.1rem;
+    }
+
+    .sound-toggle {
+        bottom: 0.5rem;
+        right: 0.5rem;
+        font-size: 0.75rem;
+        padding: 0.4rem 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .promo-video {
+        /* edge-to-edge on small phones */
+        border-radius: 0;
+        max-height: 200px;
+    }
+
+    .promo-video-card {
+        border-radius: var(--radius-xl);
+    }
+}
+
+/* ========================================
    ADMISSIONS BANNER (inside Announcements)
    ======================================== */
 

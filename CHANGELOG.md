@@ -5,6 +5,29 @@ All notable changes to the Sufiya Hameedia Trust website will be documented in t
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.0] - 2026-06-20
+
+### Added
+- **Promo Video Card** — new announcement card inside `#announcements` section
+  - 3.4 MB compressed video (`videos/promo.mp4`, H.264 480p CRF 30, AAC 96k, `faststart`)
+  - Muted autoplay triggered by `IntersectionObserver` (threshold 0.5) — browser-safe
+  - Sound toggle button overlay (🔇 / 🔊) with minimum 44px touch target for mobile
+  - `playsinline` attribute for iOS inline playback; `preload="metadata"` (no preload of full file)
+  - Poster frame uses existing admission banner image as placeholder while loading
+- **`initializePromoVideo()`** in `script.js` — scroll-based autoplay + sound toggle logic
+- **CSS** in `style.css` — `.promo-video-card`, `.video-wrapper`, `.promo-video`, `.sound-toggle`, `.feedback-standalone` with 3 responsive breakpoints (768px, 480px)
+
+### Changed
+- **Announcements section layout** — restructured `index.html`
+  - Grid now: `[Admission Banner] [Promo Video]` (2-col on desktop)
+  - Feedback card moved below as a full-width standalone row (`.feedback-standalone`)
+  - Mobile stack order: Admission Banner → Promo Video → Feedback
+
+### Technical
+- Source video: `WhatsApp Video 2026-06-18 at 09.35.51.mp4` (14 MB original)
+- Compression: `ffmpeg -vf scale=-2:480 -c:v libx264 -crf 30 -preset slow -movflags +faststart -c:a aac -b:a 96k`
+- Result: 14 MB → 3.4 MB (76% reduction) — loads on 2G/3G connections
+
 ## [2.1.0] - 2025-05-20
 
 ### Added
