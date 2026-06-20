@@ -1547,15 +1547,26 @@ body {
     position: relative;
     width: 100%;
     background: #000;
-    flex: 1;
-    min-height: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
 }
 
+/* Portrait video (9:16) — NEVER crop, show full frame */
 .promo-video {
-    width: 100%;
     display: block;
-    max-height: 380px;
-    object-fit: cover;
+    width: 100%;
+    height: auto;
+    object-fit: unset;
+    max-height: none;
+}
+
+/* Desktop: cap width so portrait video sits like a phone preview */
+@media (min-width: 769px) {
+    .promo-video {
+        max-width: 300px;   /* ~540px tall at 9:16 — intentional portrait feel */
+    }
 }
 
 /* --- Sound Toggle Button --- */
@@ -1625,10 +1636,6 @@ body {
 
 /* --- Responsive overrides --- */
 @media (max-width: 768px) {
-    .promo-video {
-        max-height: 240px;
-    }
-
     .video-card-header {
         padding: 1rem 1rem 0.75rem;
     }
@@ -1646,12 +1653,6 @@ body {
 }
 
 @media (max-width: 480px) {
-    .promo-video {
-        /* edge-to-edge on small phones */
-        border-radius: 0;
-        max-height: 200px;
-    }
-
     .promo-video-card {
         border-radius: var(--radius-xl);
     }
