@@ -4,7 +4,7 @@ A modern, responsive website for Sufiya Hameedia Group of Institutions - a chari
 
 **Live Website:** [https://www.sufiyahameediatrust.in](https://www.sufiyahameediatrust.in)  
 **GitHub Pages:** [https://sufiya-hameedia-trust.github.io](https://sufiya-hameedia-trust.github.io)  
-**Current Version:** 2.1.0
+**Current Version:** 2.3.0
 
 ---
 

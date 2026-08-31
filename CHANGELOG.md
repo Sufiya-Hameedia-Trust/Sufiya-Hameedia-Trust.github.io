@@ -5,6 +5,19 @@ All notable changes to the Sufiya Hameedia Trust website will be documented in t
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.3.0] - 2026-08-31
+
+### Added
+- **Eid Milad-un-Nabi Event Gallery** — added 6 new celebration photo cards to `#gallery` in `index.html`:
+  - Jashn-e-Eid Milad-un-Nabi classroom celebration with students waving flags
+  - Student Naat and Quran recitation presentation
+  - Faculty and student festive gathering
+  - Student speeches and presentations
+  - Children flag-waving celebration
+  - Special address by faculty member
+- **Optimized Event Assets** — added 11 high-quality, web-optimized photos to `images/` (< 230 KB each, lazy-loaded)
+- **`loading="lazy"`** applied across all gallery images for fast mobile rendering
+
 ## [2.2.0] - 2026-06-20
 
 ### Added
