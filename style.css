@@ -1798,3 +1798,124 @@ body {
         border-radius: 12px;
     }
 }
+
+/* Gallery CTA on Homepage */
+.gallery-cta-container {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.gallery-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.9rem 2.2rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-base);
+}
+
+.gallery-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Video Gallery Styles */
+.video-gallery-item {
+    background: white;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    background: #000;
+    border-top-left-radius: var(--radius-xl);
+    border-top-right-radius: var(--radius-xl);
+    overflow: hidden;
+}
+
+.gallery-video {
+    width: 100%;
+    max-height: 420px;
+    display: block;
+    object-fit: contain;
+    background: #000;
+}
+
+/* YouTube Channel Banner */
+.youtube-channel-banner {
+    margin-top: 3.5rem;
+    background: linear-gradient(135deg, #e62117 0%, #990000 100%);
+    border-radius: var(--radius-xl);
+    padding: 2.5rem 2rem;
+    color: white;
+    box-shadow: var(--shadow-lg);
+}
+
+.youtube-banner-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.yt-logo-large {
+    width: 54px;
+    height: 54px;
+    filter: brightness(0) invert(1);
+}
+
+.yt-banner-text {
+    flex: 1;
+    min-width: 250px;
+}
+
+.yt-banner-text h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.yt-banner-text p {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    margin: 0;
+}
+
+.yt-btn {
+    background: white !important;
+    color: #cc0000 !important;
+    font-weight: 700 !important;
+    padding: 0.85rem 1.8rem !important;
+    border-radius: var(--radius-lg) !important;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.yt-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 768px) {
+    .youtube-banner-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    
+    .yt-btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+}

@@ -8,15 +8,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2.3.0] - 2026-08-31
 
 ### Added
-- **Eid Milad-un-Nabi Event Gallery** — added 6 new celebration photo cards to `#gallery` in `index.html`:
-  - Jashn-e-Eid Milad-un-Nabi classroom celebration with students waving flags
-  - Student Naat and Quran recitation presentation
-  - Faculty and student festive gathering
-  - Student speeches and presentations
-  - Children flag-waving celebration
-  - Special address by faculty member
-- **Optimized Event Assets** — added 11 high-quality, web-optimized photos to `images/` (< 230 KB each, lazy-loaded)
-- **`loading="lazy"`** applied across all gallery images for fast mobile rendering
+- **Dedicated Gallery Subpage (`gallery.html`)** — full photo and video gallery page containing:
+  - **Video Highlights Section:** 4 new compressed event videos featuring student speeches, Naat recitation, classroom celebrations, and event proceedings (`eid-milad-student-speech-1.mp4`, `eid-milad-naat-recitation.mp4`, `eid-milad-flag-celebration.mp4`, `eid-milad-event-highlights.mp4`) with `preload="metadata"` and mobile-responsive video cards.
+  - **YouTube Channel Banner:** direct link to the trust's official YouTube channel for full-length broadcast archives.
+  - **Complete Photo Collections:** 11 Eid Milad-un-Nabi photos, Independence Day celebration, and classroom infrastructure.
+- **Navigation Updates:** Added `Gallery` link to navigation menus across all subpages (`hps.html`, `madrasa.html`, `night-coaching.html`, and `gallery.html`).
+- **Video Compression:** Converted raw WhatsApp video footage via ffmpeg (H.264, 480p, CRF 30, faststart web streaming, AAC 96k) achieving > 80% compression (~6 MB total for all clips).
+
+### Changed
+- **Homepage Gallery Streamlining (`index.html`)** — simplified `#gallery` into a clean 3-card highlight section (Student Speech, Independence Day, Classroom Learning) with a prominent CTA button linking to `gallery.html`.
 
 ## [2.2.0] - 2026-06-20
 
